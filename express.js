@@ -1,9 +1,14 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
-//connect to mongoDb
-const dbURI = 'mongodb+srv://<arpit333>:<arpit123>@test1.pkqed.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const mongoose = require('mongoose');
+
 app.use(app.router);
+//connect to mongoDb
+const dbURI = 'mongodb+srv://<arpit333>:<arpit123>@test1.pkqed.mongodb.net/wdcs?retryWrites=true&w=majority'
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true})
+    .then((result)=>console.log('connected to DB'))
+    .catch((err)=> console.log(err));
 
 
 app.get('/',(req,res) =>  {
