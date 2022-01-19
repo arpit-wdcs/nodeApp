@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+//connect to mongoDb
+const dbURI = 'mongodb+srv://<arpit333>:<arpit123>@test1.pkqed.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 app.use(app.router);
 
 
@@ -59,3 +61,4 @@ app.use(function(req, res, next) {
     // default to plain-text. send()
     res.type('txt').send('Not found');
   });
+
